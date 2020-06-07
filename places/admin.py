@@ -9,12 +9,6 @@ from places.models import Image, Place
 admin.site.unregister(FlatPage)
 
 
-@admin.register(Image)
-class ImageAdmin(admin.ModelAdmin):
-    model = Image
-    list_display = ('place_title', 'image')
-
-
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Image
     extra = 0

@@ -74,7 +74,6 @@ TEMPLATES = [
         },
     },
 ]
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "templates/places/"), ]
 
 WSGI_APPLICATION = 'excursions.wsgi.application'
 
@@ -126,6 +125,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),
+                    os.path.join(BASE_DIR, "static/js/"),
+                    os.path.join(BASE_DIR, "static/css/"),
+                    os.path.join(BASE_DIR, "static/img/")]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
