@@ -43,7 +43,7 @@ Json файлы можно получить перейдя по ссылке : h
 ```
 python3 manage.py load_place
 ```
-####Запуск
+#### Запуск
 для запуска на локальном компьютере выполните
 ```
 python3 manage.py runserver
@@ -52,4 +52,4 @@ python3 manage.py runserver
 
 
 
-######Dark Dmake, 2020
+###### Dark Dmake, 2020
