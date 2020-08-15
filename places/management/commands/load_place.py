@@ -25,6 +25,8 @@ class Command(BaseCommand):
             place_imgs = place_info.pop('imgs')
             lng = place_info['coordinates'].get("lng")
             lat = place_info['coordinates'].get("lat")
+            place_info["short_description"] = place_info.pop('description_short')
+            place_info["long_description"] = place_info.pop('description_long')
             place_info.pop("coordinates")
             place, exists = Place.objects.get_or_create(**place_info,
                                                         lng=lng, lat=lat)

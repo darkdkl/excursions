@@ -19,13 +19,13 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
 
 
 class PlaceAdminForm(forms.ModelForm):
-    description_long = forms.CharField(widget=TinyMCE(
+    long_description = forms.CharField(widget=TinyMCE(
         attrs={'cols': 80, 'rows': 30}))
 
     class Meta:
         model = Place
-        fields = ["title", "lat", "lng", "description_short",
-                  "description_long"]
+        fields = ["title", "lat", "lng", "short_description",
+                  "long_description"]
 
 
 @admin.register(Place)

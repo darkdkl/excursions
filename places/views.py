@@ -4,10 +4,10 @@ from django.http import JsonResponse
 from django.urls import reverse
 
 
-def get_places(obj):
-    places = []
-    for place in obj:
-        places.append({
+def get_places(places):
+    places_data = []
+    for place in places:
+        places_data.append({
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -19,7 +19,7 @@ def get_places(obj):
                 "detailsUrl": reverse("place", args={place.id})
             }
         })
-    return places
+    return places_data
 
 
 def index(request):
@@ -31,15 +31,15 @@ def index(request):
     return render(request, 'places/index.html', context=context)
 
 
-def get_place_details(obj):
+def get_place_details(place):
     details = {
-        "title": obj.title,
-        "imgs": [image.image.url for image in obj.imgs.all()],
-        "description_short": obj.description_short,
-        "description_long": obj.description_long,
+        "title": place.title,
+        "imgs": [image.image.url for image in place.imgs.all()],
+        "description_short": place.short_description,
+        "description_long": place.long_description,
         "coordinates": {
-            "lat": obj.lat,
-            "lng": obj.lng}
+            "lat": place.lat,
+            "lng": place.lng}
                 }
     return details
 
