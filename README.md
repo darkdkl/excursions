@@ -16,10 +16,7 @@ pip3 install -r requirements.txt
 SECRET_KEY = 'ваш secret key'
 DEBUG = False (для продакшена и true для разработки)
 ```
-Для создания директории /static/ в корне проекта выполните:
-```
-python3 manage.py collectstatic
-```
+
 В директорию json_data_to_load поместите файлы *.json
 для заполнения базы данными.
 Json файлы можно получить перейдя по ссылке : https://github.com/devmanorg/where-to-go-places/tree/master/places
