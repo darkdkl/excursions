@@ -8,39 +8,37 @@ def get_places(places):
     places_data = []
     for place in places:
         places_data.append({
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [place.lng, place.lat]
-            },
-            "properties": {
-                "title": place.title,
-                "placeId": "moscow_legends",
-                "detailsUrl": reverse("place", args={place.id})
-            }
+                "type": "Feature",
+                "geometry": {
+                        "type": "Point",
+                        "coordinates": [place.lng, place.lat]
+                },
+                "properties": {
+                        "title": place.title,
+                        "placeId": "moscow_legends",
+                        "detailsUrl": reverse("place", args={place.id})
+                }
         })
     return places_data
 
 
 def index(request):
-    context = {"places": {
-        "type": "FeatureCollection",
-        "features": get_places(Place.objects.all())
-                        }
-                }
+    context = {"places": {"type": "FeatureCollection",
+                          "features": get_places(Place.objects.all())}
+               }
     return render(request, 'places/index.html', context=context)
 
 
 def get_place_details(place):
     details = {
-        "title": place.title,
-        "imgs": [image.image.url for image in place.imgs.all()],
-        "description_short": place.short_description,
-        "description_long": place.long_description,
-        "coordinates": {
-            "lat": place.lat,
-            "lng": place.lng}
-                }
+            "title": place.title,
+            "imgs": [image.image.url for image in place.imgs.all()],
+            "description_short": place.short_description,
+            "description_long": place.long_description,
+            "coordinates": {
+                    "lat": place.lat,
+                    "lng": place.lng}
+              }
     return details
 
 
