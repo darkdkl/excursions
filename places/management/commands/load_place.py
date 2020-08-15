@@ -32,6 +32,6 @@ class Command(BaseCommand):
                                                         lng=lng, lat=lat)
             for file, extension in self.get_file_content(place_imgs):
                 image = Image.objects.create(place=place)
-                filename = str(uuid.uuid4()) + '.' + extension
+                filename = f"{uuid.uuid4()}.{extension}"
                 image.image.save(filename, ContentFile(file), save=True)
         self.stdout.write(self.style.SUCCESS("Импорт завершен успешно"))
